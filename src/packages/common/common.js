@@ -9,13 +9,15 @@ import './constants/development';
 import './providers/lagoProvider';
 
 //Import factories
-//import './components/util/index';
+import './components/util/index';
 
 //Import services
 import './components/http-util/services/baseHttpService';
 
 //Import components
 import './components/data-view/index';
+import './components/navbar/index';
+import './components/app-panel/index';
 
 import routing from './providers/routing';
 

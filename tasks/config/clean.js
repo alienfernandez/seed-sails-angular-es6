@@ -10,13 +10,15 @@
  *   https://github.com/gruntjs/grunt-contrib-clean
  *
  */
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
-  grunt.config.set('clean', {
-    dev: ['.tmp/public/**'],
-    build: ['www'],
-    es6: ['public/**']
-  });
+    grunt.config.set('clean', {
+        options: {
+            'no-write': true
+        },
+        dev: ['.tmp/public/**/*', '!.tmp/public/jspm_packages/**', '!.tmp/public/system.config.js'],
+        build: ['www']
+    });
 
-  grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 };

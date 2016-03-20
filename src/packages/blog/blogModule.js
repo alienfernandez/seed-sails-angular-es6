@@ -10,10 +10,11 @@ import BlogConfig from './config/blog-config';
 
 //import {commonModule} from 'commons';
 //agGrid.initialiseAgGridWithAngular1(angular);
+import {commonModule} from '../../packages/common/common';
 
 console.log("blog!");
 let blogModule = angular.module('app.blog', [
-    'agGrid',
+    'agGrid', 'common',
     //Templates
     Templates.AddArticleTpl.name,
     Templates.EditArticleTpl.name,

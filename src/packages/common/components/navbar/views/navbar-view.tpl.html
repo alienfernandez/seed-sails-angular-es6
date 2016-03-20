@@ -1,0 +1,125 @@
+<div class="navbar navbar-app" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" role="navbar">
+                <img src="app/assets/img/sails-logo.png" width="180" height="38" style="margin-top: -20px;"
+                     class="img-responsive"/>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="" role="navbar" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                        <i class="fa fa-th"></i> Applications <span class="caret"></span> </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <app-panel></app-panel>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown" ng-if="navbarCtrl.user">
+                    <a href="" role="navbar" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                        <img ng-src="{{navbarCtrl.user.profileImageURL}}" width="16" height="16">
+                        {{navbarCtrl.user.firstName | capitalize}} <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <div class="navbar-login">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <p class="text-center">
+                                            <!--<span class="glyphicon glyphicon-user icon-size"></span>-->
+                                            <img ng-src="{{navbarCtrl.user.profileImageURL}}" class="img-responsive">
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <p class="text-left"><strong>{{navbarCtrl.user.firstName | capitalize}}</strong>
+                                        </p>
+
+                                        <p class="text-left small">{{navbarCtrl.user.email}}</p>
+
+                                        <p class="text-left">
+                                            <a ui-sref="settings.profile" class="btn btn-info btn-sm">
+                                                <i class="fa fa-pencil"></i> Update profile
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="navbar-login navbar-login-session">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <p>
+                                            <button ng-click="navbarCtrl.signout()" class="btn btn-default btn-block">
+                                                <i class="fa fa-sign-out"></i> Signout
+                                            </button>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown" ng-if="!navbarCtrl.user">
+                    <a ui-sref="authentication.signin" role="navbar" role="button" aria-expanded="false">
+                        <i class="fa fa-sign-in"></i> Signin </a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="" role="navbar" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-expanded="false"><i class="fa fa-fw fa-cogs"></i> Components
+                        <span class="badge">4</span> <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a ui-sref="components.dataview" role="navbar">
+                                <i class="fa fa-fw fa-th-large"></i>
+                                Data View <span class="badge">Directive + React.js</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a ui-sref="components.navbar" role="navbar">
+                                <i class="fa fa-fw fa-navicon"></i>
+                                Navbar <span class="badge">Directive</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a ui-sref="components.loadmask" role="navbar">
+                                <i class="fa fa-spinner"></i>
+                                Load Mask <span class="badge">Directive + React.js</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a ui-sref="components.maskre" role="navbar">
+                                <i class="fa fa-asterisk"></i>
+                                Maskre <span class="badge">Directive</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!--<form class="navbar-form navbar-right search-form" role="search">-->
+            <!--<div class="input-group stylish-input-group input-append">-->
+            <!--<input type="text" class="form-control" placeholder="Search">-->
+            <!--<span class="input-group-addon">-->
+            <!--<button type="submit">-->
+            <!--<span class="fa fa-search"></span>-->
+            <!--</button>-->
+            <!--</span>-->
+            <!--</div>-->
+            <!--</form>-->
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</div>

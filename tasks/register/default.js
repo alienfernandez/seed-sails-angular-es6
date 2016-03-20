@@ -17,5 +17,5 @@
  *
  */
 module.exports = function (grunt) {
-  grunt.registerTask('default', ['compileAssets', 'linkAssets',  'watch']);
+  grunt.registerTask('default', ['compileAssets', 'linkAssets', 'babel', 'copy:assets', 'ng_html2js', 'watch']);
 };

@@ -14,18 +14,25 @@
  *   https://github.com/gruntjs/grunt-contrib-watch
  *
  */
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
-  grunt.config.set('watch', {
-    assets: {
+    grunt.config.set('watch', {
+        assets: {
 
-      // Assets to watch:
-      files: ['assets/**/*', 'tasks/pipeline.js', '!**/node_modules/**'],
+            // Assets to watch:
+            files: ['assets/**/*', 'tasks/pipeline.js', '!**/node_modules/**', 'src/**/*'],
 
-      // When assets are changed:
-      tasks: ['syncAssets' , 'linkAssets' ]
-    }
-  });
+            // When assets are changed:
+            tasks: ['syncAssets', 'linkAssets', 'babel', 'copy:assets', 'ng_html2js']
+        },
+        es6: {
+            // Assets to watch:
+            files: ['src/**/*'],
 
-  grunt.loadNpmTasks('grunt-contrib-watch');
+            // When assets are changed:
+            tasks: ['babel', 'copy:assets', 'ng_html2js']
+        }
+    });
+
+    grunt.loadNpmTasks('grunt-contrib-watch');
 };
