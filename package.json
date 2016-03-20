@@ -1,0 +1,100 @@
+{
+  "name": "seed-sails-angular-es6",
+  "private": true,
+  "version": "0.0.0",
+  "description": "a Sails application",
+  "keywords": [],
+  "dependencies": {
+    "bcrypt": "^0.8.5",
+    "connect-redis": "^3.0.2",
+    "ejs": "2.3.4",
+    "grunt": "0.4.5",
+    "grunt-contrib-clean": "0.6.0",
+    "grunt-contrib-coffee": "0.13.0",
+    "grunt-contrib-concat": "0.5.1",
+    "grunt-contrib-copy": "0.5.0",
+    "grunt-contrib-cssmin": "0.9.0",
+    "grunt-contrib-jst": "0.6.0",
+    "grunt-contrib-less": "1.1.0",
+    "grunt-contrib-uglify": "0.7.0",
+    "grunt-contrib-watch": "0.5.3",
+    "grunt-sails-linker": "~0.10.1",
+    "grunt-sync": "0.2.4",
+    "include-all": "~0.1.6",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "rc": "1.0.1",
+    "sails": "~0.12.1",
+    "sails-auth": "^2.1.3",
+    "sails-disk": "~0.10.9",
+    "sails-postgresql": "^0.12.0"
+  },
+  "scripts": {
+    "debug": "node debug app.js",
+    "start": "node app.js"
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/root/seed-sails-angular-es6.git"
+  },
+  "author": "root",
+  "license": "",
+  "jspm": {
+    "directories": {
+      "baseURL": ".tmp/public"
+    },
+    "configFile": ".tmp/public/system.config.js",
+    "dependencies": {
+      "ag-grid": "github:ceolter/ag-grid@^2.3.7",
+      "angular": "github:angular/bower-angular@^1.4.5",
+      "angular-animate": "npm:angular-animate@^1.4.8",
+      "angular-cookies": "npm:angular-cookies@^1.4.8",
+      "angular-local-storage": "github:grevory/angular-local-storage@^0.2.2",
+      "angular-material": "github:angular/bower-material@^0.11.0",
+      "angular-mocks": "github:angular/bower-angular-mocks@^1.4.8",
+      "angular-modal-service": "github:dwmkerr/angular-modal-service@^0.6.5",
+      "angular-momentjs": "github:gdi2290/angular-momentjs@^0.2.2",
+      "angular-resource": "github:angular/bower-angular-resource@^1.4.8",
+      "angular-ui-router": "github:angular-ui/ui-router@^0.2.15",
+      "angular-validation": "github:huei90/angular-validation@1.3.2",
+      "bootstrap": "github:twbs/bootstrap@^3.3.5",
+      "classNames": "github:JedWatson/classnames@^2.2.0",
+      "css": "github:systemjs/plugin-css@^0.1.16",
+      "fancybox-plus": "github:igorlino/fancybox-plus@^1.3.6",
+      "font-awesome": "npm:font-awesome@^4.4.0",
+      "image": "github:systemjs/plugin-image@^0.1.0",
+      "jquery": "github:components/jquery@^2.1.4",
+      "jquery-ui": "npm:jquery-ui@^1.10.5",
+      "json": "github:systemjs/plugin-json@^0.1.0",
+      "lodash": "npm:lodash@^3.10.1",
+      "moment": "github:moment/moment@^2.10.6",
+      "ng-lodash": "npm:ng-lodash@^0.2.3",
+      "ng-select": "github:pc035860/ngSelect@^1.0.0",
+      "ocLazyLoad": "github:ocombe/ocLazyLoad@^1.0.3",
+      "plugin-css": "github:systemjs/plugin-css@^0.1.16",
+      "plugin-image": "github:systemjs/plugin-image@^0.1.0",
+      "plugin-json": "github:systemjs/plugin-json@^0.1.0",
+      "react": "github:facebook/react@^0.14.3",
+      "react-renderer": "npm:react-renderer@^0.1.4",
+      "toastr": "npm:angular-toastr@^1.6.0",
+      "ui-router-extras": "npm:ui-router-extras@^0.0.14",
+      "ui-router-stateHelper": "github:marklagendijk/ui-router.stateHelper@^1.3.1",
+      "visionmedia/debug": "github:visionmedia/debug@^2.2.0"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.5.0",
+    "grunt-babel": "^6.0.0",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-ng-html2js": "^0.2.1",
+    "jspm": "^0.16.31"
+  }
+}

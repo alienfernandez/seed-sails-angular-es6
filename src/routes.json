@@ -1,0 +1,32 @@
+[
+  {
+    "stateName": "home",
+    "urlPrefix": "/",
+    "type": "load",
+    "src": "packages/core/system"
+  },
+  {
+    "stateName": "blog",
+    "urlPrefix": "/blog",
+    "type": "load",
+    "src": "packages/blog"
+  },
+  {
+    "stateName": "article",
+    "urlPrefix": "/articles/:userId",
+    "type": "load",
+    "src": "packages/blog"
+  },
+  {
+    "stateName": "article-list",
+    "urlPrefix": "/articles",
+    "type": "load",
+    "src": "packages/blog"
+  },
+  {
+    "stateName": "blog-state",
+    "urlPrefix": "/blog",
+    "type": "load",
+    "src": "packages/blog"
+  }
+]

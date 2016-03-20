@@ -1,0 +1,52 @@
+<section ng-init="blogCtrl.find()">
+    <navbar user="blogCtrl.user"></navbar>
+    <div class="container-fluid">
+        <div class="col-lg-12" style="margin-bottom: 15px;margin-top: 15px;">
+            <div class="text-center">
+                <h3><i class="fa fa-th-large"></i> Art&iacute;culos </h3>
+            </div>
+        </div>
+        <!--<div class="col-lg-12">-->
+            <!--<blogview options="blogCtrl.options"></blogview>-->
+        <!--</div>-->
+
+        <div class="col-lg-12">
+            <div class="well" ng-repeat="article in blogCtrl.articles">
+                <div class="media">
+                    <a class="pull-left" href="#">
+                        <img class="media-object" src="http://placehold.it/150x150">
+                    </a>
+
+                    <div class="media-body">
+                        <h4 class="media-heading">{{article.title}}</h4>
+
+                        <p class="text-right">By {{article.user.displayName}}</p>
+
+                        <p>{{article.content}}</p>
+                        <ul class="list-inline list-unstyled">
+                            <!--<li><span><i class="glyphicon glyphicon-calendar"></i> 1 days, 8 hours </span></li>-->
+                            <li><span class="badge">{{article.created}}</span></li>
+                            <li>|</li>
+                            <span><i class="glyphicon glyphicon-comment"></i> 0 comments</span>
+                            <li>|</li>
+                            <li>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </li>
+                            <li>|</li>
+                            <li>
+                                <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
+                                <span><i class="fa fa-facebook-square"></i></span>
+                                <span><i class="fa fa-twitter-square"></i></span>
+                                <span><i class="fa fa-google-plus-square"></i></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

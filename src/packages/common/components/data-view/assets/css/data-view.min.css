@@ -1,0 +1,94 @@
+.dv-main {
+  background: white;
+  font: 13px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* Module view */ }
+  .dv-main .img-center {
+    display: block;
+    margin: 0 auto; }
+  .dv-main .dv-item-selected {
+    background: #DFEDFF;
+    /*border: 1px solid #6593cf;*/
+    padding: 4px;
+    outline: 1px dashed #5fa2dd !important;
+    outline-offset: -1px; }
+  .dv-main .dv-thumb-wrap {
+    float: left;
+    margin: 4px;
+    margin-right: 0;
+    padding: 5px; }
+  .dv-main .dv-cursor-pointer {
+    cursor: pointer; }
+  .dv-main .dv-thumb-wrap-without-margin {
+    float: left;
+    padding: 5px; }
+  .dv-main .dv-view-item-focused {
+    outline: 1px dashed #5fa2dd !important;
+    outline-offset: -1px; }
+  .dv-main .dv-thumb {
+    padding: 3px; }
+  .dv-main .dv-item-selected .dv-thumb {
+    background: transparent; }
+  .dv-main .dv-view-over {
+    /*border: 1px solid #dddddd;*/
+    background-color: #efefef;
+    /*padding: 4px;*/ }
+  .dv-main .dv-view-over-with-border {
+    border: 1px solid #dddddd;
+    background-color: #efefef;
+    /*padding: 4px;*/ }
+  .dv-main .dv-thumb-wrap span {
+    display: block;
+    overflow: hidden;
+    text-align: center; }
+  .dv-main .dv-item-selected span {
+    color: #1A4D8F; }
+  .dv-main .dv-grouping {
+    display: block;
+    margin-left: 15px;
+    margin-right: 15px; }
+  .dv-main .dv-header-grouping {
+    font: 13px Arial, Helvetica, sans-serif;
+    border-bottom: 2px solid #dddddd;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    padding: 5px;
+    font-weight: 600; }
+  .dv-main .dv-cursor-pointer {
+    cursor: pointer; }
+  .dv-main .dv-collapse-btn {
+    float: right;
+    margin-right: 5px;
+    cursor: pointer; }
+  .dv-main .dv-collapse {
+    display: none; }
+  .dv-main .dv-module-view dd {
+    float: left;
+    width: 300px;
+    height: 100px;
+    margin: 5px 5px 5px 10px;
+    cursor: pointer;
+    zoom: 1; }
+    .dv-main .dv-module-view dd img {
+      width: 120px;
+      height: 90px;
+      margin: 5px 0 0 5px;
+      float: left; }
+    .dv-main .dv-module-view dd div {
+      float: left;
+      width: 160px;
+      margin-left: 10px;
+      margin-top: 8px; }
+    .dv-main .dv-module-view dd h4 {
+      font: 11px Arial, Helvetica, sans-serif;
+      color: #555;
+      font-size: 11px;
+      font-weight: bold; }
+    .dv-main .dv-module-view dd p {
+      color: #777;
+      margin: 2px 0 0 -1px; }
+  .dv-main a.dv-link {
+    color: #222222 !important; }
+  .dv-main a.dv-link:hover {
+    text-decoration: none; }
+  .dv-main a.active {
+    border-bottom: 1px solid #72c02c; }

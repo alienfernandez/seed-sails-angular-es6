@@ -1,0 +1,74 @@
+/*
+ * Global vars app
+ **/
+/**
+ * Forms vars
+ */
+/*
+ * Badge vars
+ */
+/*
+ * Tab line vars
+ */
+.service {
+  overflow: hidden;
+  margin-bottom: 10px;
+  padding: 15px 15px 10px; }
+  .service .desc {
+    padding: 0 15px;
+    overflow: hidden; }
+  .service .service-icon {
+    float: left;
+    padding: 10px;
+    color: #72c02c;
+    font-size: 35px;
+    text-align: center;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out; }
+
+.icon-size {
+  font-size: 87px; }
+
+#custom_carousel .item {
+  color: #000;
+  background-color: #eee;
+  padding: 20px 0; }
+
+#custom_carousel .controls {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  text-align: center;
+  position: relative;
+  background: #ddd; }
+  #custom_carousel .controls li {
+    display: table-cell;
+    width: 1%;
+    max-width: 90px; }
+  #custom_carousel .controls li.active {
+    background-color: #eee;
+    border-top: 3px solid #72c02c; }
+  #custom_carousel .controls li:hover {
+    background-color: #eee;
+    border-top: 3px solid #72c02c; }
+  #custom_carousel .controls a small {
+    overflow: hidden;
+    display: block;
+    font-size: 10px;
+    margin-top: 5px;
+    font-weight: bold; }
+
+.component ul li a {
+  color: #93a3b5;
+  font-size: 14px;
+  font-weight: 400; }
+
+.component ul li.active a {
+  color: #72c02c;
+  background-color: #f6f9fb;
+  border-left: 2px solid #72c02c;
+  margin-left: -2px; }
