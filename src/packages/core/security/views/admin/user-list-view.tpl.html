@@ -1,0 +1,25 @@
+<section ng-init="userCtrl.find()">
+    <div class="page-header">
+        <h2>Users
+        <small>
+            <span class="pull-right" style="margin-right: 15px;">
+                <a ui-sref="useradd" class="btn btn-xs btn-info"><i class="fa fa-plus-circle"></i> Create</a>
+            </span>
+        </small>
+        </h2>
+    </div>
+    <div class="list-group">
+        <a ng-repeat="user in userCtrl.users"  ng-click="userCtrl.edit({userId: user._id})"  class="list-group-item">
+            <small class="list-group-item-text">
+                Username:
+                <span ng-bind="user.username"></span>
+                <span class="pull-right">
+                    <button class="btn btn-xs btn-danger" ng-click="userCtrl.remove(user)">
+                        <i class="fa fa-trash"></i> Delete </button></span>
+            </small>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" ng-if="userCtrl.users.$resolved && !userCtrl.users.length">
+        No user yet, why don't you <a ui-sref="useradd">create one</a>?
+    </div>
+</section>

@@ -2,7 +2,7 @@ import commonModule from '../../../commonModule';
 
 //Import template
 import NavBarTpl from '../views/navbar-view.tpl';
-console.log("NavBarTpl", NavBarTpl);
+//console.log("NavBarTpl", NavBarTpl);
 /**
  * @ngdoc component
  * @name navbar
@@ -16,7 +16,7 @@ commonModule.component('navbar', {
     restrict: 'E',
     //replace: true,
     templateUrl: ($element, $attrs) => {
-        console.log("NavBarTpl.name", NavBarTpl.name);
+        //console.log("NavBarTpl.name", NavBarTpl.name);
         return NavBarTpl.name;
     },
     controller: 'NavbarController as navbarCtrl',

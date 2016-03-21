@@ -12,7 +12,6 @@ import BlogConfig from './config/blog-config';
 //agGrid.initialiseAgGridWithAngular1(angular);
 import {commonModule} from '../../packages/common/common';
 
-console.log("blog!");
 let blogModule = angular.module('app.blog', [
     'agGrid', 'common',
     //Templates

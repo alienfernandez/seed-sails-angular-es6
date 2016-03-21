@@ -28,5 +28,29 @@
     "urlPrefix": "/blog",
     "type": "load",
     "src": "packages/blog"
+  },
+  {
+    "stateName": "authentication",
+    "urlPrefix": "/",
+    "type": "load",
+    "src": "packages/core/security"
+  },
+  {
+    "stateName": "user",
+    "urlPrefix": "/users/:userId",
+    "type": "load",
+    "src": "packages/core/security"
+  },
+  {
+    "stateName": "settings",
+    "urlPrefix": "/settings",
+    "type": "load",
+    "src": "packages/core/security"
+  },
+  {
+    "stateName": "password",
+    "urlPrefix": "/password",
+    "type": "load",
+    "src": "packages/core/security"
   }
 ]

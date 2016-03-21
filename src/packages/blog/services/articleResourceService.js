@@ -4,7 +4,7 @@ class ArticleResourceService {
 
     constructor($resource) {
         this.$resource = $resource;
-        return this.$resource('articles/:articleId', {
+        return this.$resource('api/articles/:articleId', {
             articleId: '@_id'
         }, {
             update: {

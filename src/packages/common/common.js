@@ -18,6 +18,9 @@ import './components/http-util/services/baseHttpService';
 import './components/data-view/index';
 import './components/navbar/index';
 import './components/app-panel/index';
+import './components/mask/index';
+import './components/flash/index';
+import './components/i18n/index';
 
 import routing from './providers/routing';
 

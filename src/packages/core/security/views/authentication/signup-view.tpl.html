@@ -1,0 +1,51 @@
+<div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="panel-title">Sign Up</div>
+        </div>
+        <div class="panel-body">
+            <form name="userForm" class="signin" novalidate autocomplete="off">
+                <fieldset>
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName" class="form-control"
+                               ng-model="secCtrl.credentials.firstName" placeholder="First Name"
+                               validator="required" required-error-message="Campo requerido">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" class="form-control"
+                               ng-model="secCtrl.credentials.lastName" placeholder="Last Name"
+                               validator="required" required-error-message="Campo requerido">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control"
+                               ng-model="secCtrl.credentials.email" placeholder="Email" lowercase
+                               validator="required" required-error-message="Campo requerido">
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" class="form-control"
+                               ng-model="secCtrl.credentials.username" placeholder="Username" lowercase
+                               validator="required" required-error-message="Campo requerido">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" class="form-control"
+                               ng-model="secCtrl.credentials.password" placeholder="Password"
+                               validator="required" required-error-message="Campo requerido">
+                    </div>
+                    <div class="text-center form-group">
+                        <button type="submit" class="btn btn-primary"
+                                ng-click="secCtrl.signup()" validation-submit="userForm">
+                            <i class="fa fa-sign-in"></i> Sign up
+                        </button>
+                        &nbsp; or&nbsp;
+                        <a ui-sref="authentication.signin" class="show-signup"><i class="fa fa-sign-in"></i> Sign in</a>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
