@@ -1,0 +1,36 @@
+<section ng-init="userCtrl.findOne()">
+    <div class="page-header">
+        <h2>Edit User <span ng-bind="userCtrl.user.username"></span></h2>
+    </div>
+    <div class="col-md-12">
+        <form name="userForm" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" class="form-control"
+                           ng-model="userCtrl.user.firstName" placeholder="First Name"
+                           validator="required" required-error-message="Campo requerido"/>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" class="form-control"
+                           ng-model="userCtrl.user.lastName" placeholder="Last Name"
+                           validator="required" required-error-message="Campo requerido"/>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="roles">Roles</label>
+
+                    <div class="controls">
+                        <input class="form-control" type="text" name="roles" ng-model="userCtrl.user.roles" id="roles"
+                               ng-list validator="required" required-error-message="Campo requerido"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default" ng-click="userCtrl.update()"
+                            validation-submit="userForm"><i class="fa fa-pencil"></i> Update
+                    </button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</section>
