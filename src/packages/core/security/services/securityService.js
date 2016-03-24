@@ -7,7 +7,7 @@ class SecurityService {
         this.httpService = BaseHttpService;
         this.authService = AuthenticationService;
         this.serverUri = this.httpService.config.serverUri;
-        console.log("serverUri: ", this.serverUri);
+        //console.log("serverUri: ", this.serverUri);
     }
 
     /*ngInject*/
@@ -40,7 +40,7 @@ class SecurityService {
      * @param uri
      * @returns {Promise}
      */
-    signin(credentials, uri = '/api/auth/signin') {
+    signin(credentials, uri = '/auth/local') {
         var url = this.serverUri + uri;
         return new Promise((resolve, reject) => {
             this.httpService.post(url, credentials)
@@ -55,7 +55,7 @@ class SecurityService {
     }
 
     signout() {
-        var url = this.serverUri + '/api/auth/signout';
+        var url = this.serverUri + '/signout';
         return new Promise((resolve, reject) => {
             this.httpService.get(url, {})
                 .then((data) => {

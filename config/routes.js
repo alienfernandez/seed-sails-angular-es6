@@ -36,8 +36,27 @@ module.exports.routes = {
     view: 'homepage'
   },
 
-  //Custom security routes
-  'post /api/auth/signin': 'security/users/AuthenticationController.signin'
+  /***************************************************************************
+   *                                                                          *
+   * Custom security routes                                                   *
+   *                                                                          *
+   * If a request to a URL doesn't match any of the custom routes above, it   *
+   * is matched against Sails route blueprints. See `config/blueprints.js`    *
+   * for configuration options and examples.                                  *
+   *                                                                          *
+   ***************************************************************************/
+  //'post /api/auth/signin': 'security/users/AuthenticationController.signin',
+  'get /api/users/me': 'security/users/UserController.me',
+
+  'post /register': 'security/users/UserController.create',
+  'get /signout': 'security/users/AuthenticationController.logout',
+
+  'post /auth/local': 'security/users/AuthenticationController.callback',
+  'post /auth/local/:action': 'security/users/AuthenticationController.callback',
+
+  'get /auth/:provider': 'security/users/AuthenticationController.provider',
+  'get /auth/:provider/callback': 'security/users/AuthenticationController.callback',
+  'get /auth/:provider/:action': 'security/users/AuthenticationController.callback'
 
   /***************************************************************************
    *                                                                          *
