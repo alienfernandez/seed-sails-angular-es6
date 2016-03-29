@@ -1,3 +1,5 @@
+var jwt = require('jsonwebtoken');
+
 /**
  * UserController
  *
@@ -104,7 +106,16 @@ module.exports = {
         }
 
         sails.log.info('user', user, 'authenticated successfully');
-        return res.json(user);
+        var payload = user;
+        var escaped = JSON.stringify(payload);
+        escaped = encodeURI(escaped);
+        // We are sending the payload inside the token
+        var token = jwt.sign(escaped, sails.config.session.secret, null, {expiresIn: 300});
+        return res.json({
+          token: token,
+          redirect: 'home'
+        });
+        //return res.json(user);
       });
     });
   },

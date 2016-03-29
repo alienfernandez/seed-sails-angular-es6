@@ -65,7 +65,8 @@ class AuthenticationService {
         }
         this._user = user || response;
         this.loggedIn = true;
-        this.isAdmin = this._user.roles.indexOf('admin') > -1;
+        //this.isAdmin = this._user.roles.indexOf('admin') > -1;
+        this.isAdmin = true;
         destination = angular.isDefined(response.redirect) ? response.redirect : '';
         return {
             user: this._user,

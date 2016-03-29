@@ -265,7 +265,6 @@ passport.loadStrategies = function () {
   _.each(strategies, function (strategy, key) {
     var options = {passReqToCallback: true};
     var Strategy;
-    console.log("key", key)
     if (key === 'local') {
       // Since we need to allow users to login using both usernames as well as
       // emails, we'll set the username field to something more generic.

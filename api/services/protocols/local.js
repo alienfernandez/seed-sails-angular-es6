@@ -127,7 +127,6 @@ exports.login = function (req, identifier, password, next) {
   var isEmail = validateEmail(identifier)
     , query = {};
 
-  console.log("isEmail", isEmail)
   if (isEmail) {
     query.email = identifier;
   }
