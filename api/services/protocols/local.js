@@ -1,4 +1,5 @@
 var SAError = require('../../../lib/error/SAError.js');
+var  generatePassword = require('password-generator');
 
 /**
  * Local Authentication Protocol
@@ -35,6 +36,10 @@ exports.register = function (user, next) {
 exports.createUser = function (_user, next) {
   var password = _user.password;
   delete _user.password;
+  var jidPassword = generatePassword(12, false);
+  _user.displayName = _user.firstName + ' ' + _user.lastName;
+  _user.jid = _user.username + '@localhost';
+  _user.jidPassword = jidPassword;
 
   return sails.models.user.create(_user, function (err, user) {
     if (err) {
@@ -122,6 +127,7 @@ exports.login = function (req, identifier, password, next) {
   var isEmail = validateEmail(identifier)
     , query = {};
 
+  console.log("isEmail", isEmail)
   if (isEmail) {
     query.email = identifier;
   }
@@ -145,8 +151,8 @@ exports.login = function (req, identifier, password, next) {
     }
 
     sails.models.passport.findOne({
-      protocol: 'local'
-      , user: user.id
+      protocol: 'local',
+      user: user.id
     }, function (err, passport) {
       if (passport) {
         passport.validatePassword(password, function (err, res) {

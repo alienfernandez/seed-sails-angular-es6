@@ -1,3 +1,6 @@
+var _ = require('lodash');
+var crypto = require('crypto');
+
 /**
  * User.js
  *
@@ -7,67 +10,94 @@
 
 module.exports = {
 
-    attributes: {
-        id: {
-            type: 'integer',
-            autoIncrement: true,
-            primaryKey: true,
-            index: true
-        },
-        firstName: {
-            type: 'string',
-            defaultsTo: ''
-        },
-        lastName: {
-            type: 'string',
-            defaultsTo: ''
-        },
-        displayName: {
-            type: 'string',
-            trim: true
-        },
-        email: {
-            type: 'string',
-            unique: true,
-            defaultsTo: ''
-        },
-        username: {
-            type: 'string',
-            unique: true,
-            required: true
-        },
-        password: {
-            type: 'string',
-            defaultsTo: ''
-        },
-        jid: {
-            type: 'string',
-            unique: true,
-            required: true
-        },
-        jidPassword: {
-            type: 'string',
-            defaultsTo: ''
-        },
-        salt: {
-            type: 'string'
-        },
-        profileImageURL: {
-            type: 'string',
-            defaultsTo: 'default.png'
-        },
-        provider: {
-            type: 'string',
-            required: true
-        },
-        /* For reset password */
-        resetPasswordToken: {
-            type: 'string'
-        },
-        resetPasswordExpires: {
-            type: 'date'
-        }
+  attributes: {
+    id: {
+      type: 'integer',
+      autoIncrement: true,
+      primaryKey: true,
+      index: true
+    },
+    firstName: {
+      type: 'string',
+      defaultsTo: ''
+    },
+    lastName: {
+      type: 'string',
+      defaultsTo: ''
+    },
+    displayName: {
+      type: 'string'
+    },
+    email: {
+      type: 'string',
+      unique: true,
+      defaultsTo: ''
+    },
+    username: {
+      type: 'string',
+      unique: true,
+      required: true
+    },
+    jid: {
+      type: 'string',
+      unique: true,
+      required: true
+    },
+    jidPassword: {
+      type: 'string',
+      defaultsTo: ''
+    },
+    salt: {
+      type: 'string'
+    },
+    profileImageURL: {
+      type: 'string',
+      defaultsTo: 'default.png'
+    },
+    passports: {
+      collection: 'Passport',
+      via: 'user'
+    },
+    /* For reset password */
+    resetPasswordToken: {
+      type: 'string'
+    },
+    resetPasswordExpires: {
+      type: 'date'
+    },
 
+    getGravatarUrl: function () {
+      var md5 = crypto.createHash('md5');
+      md5.update(this.email || '');
+      return 'https://gravatar.com/avatar/' + md5.digest('hex');
+    },
+
+    toJSON: function () {
+      var user = this.toObject();
+      delete user.password;
+      user.gravatarUrl = this.getGravatarUrl();
+      return user;
     }
+
+  },
+  beforeCreate: function (user, next) {
+    if (_.isEmpty(user.username)) {
+      user.username = user.email;
+    }
+    next();
+  },
+
+  /**
+   * Register a new User with a passport
+   */
+  register: function (user) {
+    return new Promise(function (resolve, reject) {
+      sails.services.passport.protocols.local.createUser(user, function (error, created) {
+        if (error) return reject(error);
+
+        resolve(created);
+      });
+    });
+  }
 };
 

@@ -262,7 +262,6 @@ passport.callback = function (req, res, next) {
  */
 passport.loadStrategies = function () {
   var strategies = sails.config.passport;
-  console.log("strategies", strategies)
   _.each(strategies, function (strategy, key) {
     var options = {passReqToCallback: true};
     var Strategy;
@@ -275,7 +274,6 @@ passport.loadStrategies = function () {
       // Only load the local strategy if it's enabled in the config
       if (strategies.local) {
         Strategy = strategies[key].strategy;
-
         passport.use(new Strategy(options, this.protocols.local.login));
       }
     }
