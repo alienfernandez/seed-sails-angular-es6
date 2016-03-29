@@ -110,7 +110,7 @@ module.exports = {
         var escaped = JSON.stringify(payload);
         escaped = encodeURI(escaped);
         // We are sending the payload inside the token
-        var token = jwt.sign(escaped, sails.config.session.secret, null, {expiresIn: 300});
+        var token = jwt.sign(escaped, sails.config.app.secret, null, {expiresIn: 300});
         return res.json({
           token: token,
           redirect: 'home'

@@ -52,7 +52,7 @@ module.exports = {
     },
     profileImageURL: {
       type: 'string',
-      defaultsTo: 'default.png'
+      defaultsTo: 'app/assets/img/default_user_noimage.png'
     },
     passports: {
       collection: 'Passport',
