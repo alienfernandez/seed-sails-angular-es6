@@ -1,6 +1,6 @@
 /**
  * Default app config
- * (sails.config.app)
+ * (sails.config.xmpp)
  *
  */
 
