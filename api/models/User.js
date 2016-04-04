@@ -52,7 +52,7 @@ module.exports = {
     },
     profileImageURL: {
       type: 'string',
-      defaultsTo: 'app/assets/img/default_user_noimage.png'
+      defaultsTo: sails.config.app.profile.defaultUserImage
     },
     passports: {
       collection: 'Passport',

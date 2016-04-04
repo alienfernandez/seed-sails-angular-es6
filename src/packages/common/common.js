@@ -21,6 +21,8 @@ import './components/app-panel/index';
 import './components/mask/index';
 import './components/flash/index';
 import './components/i18n/index';
+import './components/validation/index';
+import './components/chat/index';
 
 import routing from './providers/routing';
 

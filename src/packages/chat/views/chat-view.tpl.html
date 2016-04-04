@@ -1,0 +1,71 @@
+<!-- The chat view -->
+<style>
+
+</style>
+
+<navbar user="chatCtrl.user"></navbar>
+<div class="container-fluid">
+    <div class="page-header">
+        <h1>Chat Example</h1>
+    </div>
+    <!-- The message form -->
+    <div class="row">
+        <div class="col-lg-9">
+            <form class="col-xs-12 col-md-off8000set-4 col-md-4" ng-submit="chatCtrl.sendMessage();">
+                <fieldset class="row">
+                    <div class="input-group">
+                        <input type="text" id="messageText" name="messageText" class="form-control"
+                               ng-model="chatCtrl.messageText" placeholder="Enter new message">
+                <span class="input-group-btn">
+                  <button type="submit" class="btn btn-xs btn-primary" ng-disabled="!chatCtrl.messageText.length">Send
+                  </button>
+                </span>
+                    </div>
+                </fieldset>
+            </form>
+            <ul class="list-unstyled">
+                <!-- List all messages -->
+                <li class="col-xs-12 col-md-offset-4 col-md-4 chat-message" ng-repeat="message in chatCtrl.messages">
+                    <small class="pull-right text-muted" ng-bind="message.created | date:'mediumTime'"></small>
+                    <img ng-src="{{message.profileImageURL}}" alt="{{message.username}}"
+                         class="pull-left chat-profile-image"/>
+
+                    <div class="pull-left chat-message-details">
+                        <strong ng-bind="message.username"></strong>
+                        <br>
+                        <span ng-bind="message.text"></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-3">
+            <div class="chat-sidebar nav">
+                <ul class="" ng-if="chatCtrl.roster">
+                    <!-- List all messages -->
+                    <li class="list-group-item" ng-repeat="rosterData in chatCtrl.roster.roster"
+                        ng-click="chatCtrl.createChat(rosterData.contact.jid)">
+                        <div class="_55lp">
+                            <div class="roster-img-container">
+                                <div size="32" class="_55lt" style="width: 32px; height: 32px;">
+                                    <img src="http://placehold.it/32x32"
+                                         width="32" height="32" alt="" class="img img-circle"></div>
+                                <div class="online-user pD" title="Este usuario está disponible. "
+                                     ng-if="rosterData.presence"></div>
+                            </div>
+                            <div class="chat-time">
+                                <div class="chat-time-moment">
+                                    <div class="_568-">0 min</div>
+                                </div>
+                            </div>
+                            <div class="roster-item">{{rosterData.contact.jid}}</div>
+                            <!--<div class="_55ls">-->
+                            <!--</div>-->
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
