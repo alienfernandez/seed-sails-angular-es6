@@ -1,13 +1,18 @@
 //Import resources
 import {angular} from './resources';
 //Import common and routing module
-import {commonModule} from './packages/common/common';
-import {routing} from './packages/common/common';
+//import {commonModule} from './packages/common/common';
+//import {routing} from './packages/common/common';
+
+import {commonModule} from 'commons';
+import {routing} from 'commons';
+
 import futureRoutes from './routes.json!';
+console.log("futureRoutes",futureRoutes)
 
 //Import system module
 import system from './packages/system';
-import blog from './packages/blog';
+//import blog from './packages/blog';
 
 var appModuleName = 'app';
 var appDependencies = ['ui.router', 'ui.router.stateHelper', 'oc.lazyLoad', 'ngResource', 'ngAnimate',

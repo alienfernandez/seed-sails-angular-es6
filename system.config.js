@@ -1,4 +1,5 @@
 System.config({
+  baseURL: ".",
   defaultJSExtensions: true,
   transpiler: "babel",
   babelOptions: {
@@ -9,8 +10,12 @@ System.config({
   },
   paths: {
     "github:*": "jspm_packages/github/*",
-    "npm:*": "jspm_packages/npm/*"
+    "npm:*": "jspm_packages/npm/*",
+    "commons": "app/packages/common/common.js",
+    "packages/*": "app/packages/*.js",
+
   },
+
   meta: {
     "github:huei90/angular-validation@1.3.2": {
       "deps": [

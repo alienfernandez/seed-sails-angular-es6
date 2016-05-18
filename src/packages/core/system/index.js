@@ -5,7 +5,7 @@ import './assets/css/core.min.css!';
 
 //Services
 import './services/interceptors/authInterceptorService';
-//import './web/services/socketIoService';
+import './services/socketIoService';
 import './services/systemService';
 
 //Controllers

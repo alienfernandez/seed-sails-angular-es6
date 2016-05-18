@@ -3,39 +3,39 @@ import chatModule from '../chatModule';
 class ChatController {
 
     /*ngInject*/
-    constructor($scope, $location, Socket, AuthenticationService, ChatBoxes, ChatXmpp, $appConstants, toastr) {
+    constructor($scope, $location, Socket, AuthenticationService, $appConstants, toastr) { //ChatBoxes, ChatXmpp,
         //ChatBoxes.create('alien');
-        this.ChatBoxes = ChatBoxes;
-        this.ChatXmpp = ChatXmpp;
         this.toastr = toastr;
+        //this.ChatBoxes = ChatBoxes;
+        //this.ChatXmpp = ChatXmpp;
         //Init bosh service
-        ChatXmpp.init($appConstants.xmpp.boshHttpService, {});
-        //Connect to jabber chat
-        ChatXmpp.getXmppCore().connect(AuthenticationService.user.jid, AuthenticationService.user.jidPassword);
-        $scope.$on('onRoster', (event, data) => {
-            $scope.$apply(() => {
-                //angular.forEach(data.roster.roster, function (data) {
-                //    UsersService.findUserByJid(data.contact.jid).then(function () {
-                //
-                //    });
-                //});
-                this.roster = data.roster;
-            });
-        });
+        //ChatXmpp.init($appConstants.xmpp.boshHttpService, {});
+        ////Connect to jabber chat
+        //ChatXmpp.getXmppCore().connect(AuthenticationService.user.jid, AuthenticationService.user.jidPassword);
+        //$scope.$on('onRoster', (event, data) => {
+        //    $scope.$apply(() => {
+        //        //angular.forEach(data.roster.roster, function (data) {
+        //        //    UsersService.findUserByJid(data.contact.jid).then(function () {
+        //        //
+        //        //    });
+        //        //});
+        //        this.roster = data.roster;
+        //    });
+        //});
 
-        $scope.$on('onPresence', (event, data) => {
-            this.toastr.clear();
-            let _user = data.from.split('@');
-            if (data.show == 'unavailable') {
-                this.toastr.info(_user[0] + ' is disconnected.');
-            }
-            if (data.show == 'available') {
-                this.toastr.info(_user[0] + ' is ' + data.show + '.');
-            }
-            $scope.$apply(() => {
-                this.roster = ChatXmpp.getXmppCore()._user.roster;
-            });
-        });
+        //$scope.$on('onPresence', (event, data) => {
+        //    this.toastr.clear();
+        //    let _user = data.from.split('@');
+        //    if (data.show == 'unavailable') {
+        //        this.toastr.info(_user[0] + ' is disconnected.');
+        //    }
+        //    if (data.show == 'available') {
+        //        this.toastr.info(_user[0] + ' is ' + data.show + '.');
+        //    }
+        //    $scope.$apply(() => {
+        //        this.roster = ChatXmpp.getXmppCore()._user.roster;
+        //    });
+        //});
 
         this.$location = $location;
         this.Socket = Socket;
@@ -64,7 +64,7 @@ class ChatController {
     }
 
     createChat(jid) {
-        this.ChatBoxes.create(jid);
+        //this.ChatBoxes.create(jid);
     }
 
     sendMessage() {

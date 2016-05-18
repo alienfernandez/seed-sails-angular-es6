@@ -22,7 +22,7 @@ class AppPanelController {
             iconCls: 'fa fa-cog',
             description: "Components",
             state: "components.dataview",
-            //uri: "#/components/dataview"
+            uri: "#/components/dataview"
           }, {
             name: "Home",
             iconCls: 'fa fa-home',

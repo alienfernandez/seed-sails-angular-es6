@@ -9,7 +9,7 @@
         </h2>
     </div>
     <div class="list-group">
-        <a ng-repeat="user in userCtrl.users"  ng-click="userCtrl.edit({userId: user._id})"  class="list-group-item">
+        <a ng-repeat="user in userCtrl.users"  ng-click="userCtrl.edit({userId: user.id})"  class="list-group-item">
             <small class="list-group-item-text">
                 Username:
                 <span ng-bind="user.username"></span>

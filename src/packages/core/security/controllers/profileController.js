@@ -8,7 +8,7 @@ class ProfileController {
         this.UserService = UserService;
         this.Upload = Upload;
         //this.user = this.authentication.user;
-        this.findUser(this.authentication.user._id);
+        this.findUser(this.authentication.user.id);
         this.imageURL = this.authentication.user.profileImageURL;
         this.$state = $state;
         this.toastr = toastr;

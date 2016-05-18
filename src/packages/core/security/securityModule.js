@@ -12,7 +12,8 @@ import * as Templates from './templates';
 import SecurityConfig from './config/security-config';
 
 //Import common module
-import {commonModule} from '../../common/common';
+//import {commonModule} from '../../common/common';
+import {commonModule} from 'commons';
 
 /**
  * Security module

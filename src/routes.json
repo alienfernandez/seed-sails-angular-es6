@@ -6,6 +6,36 @@
     "src": "packages/core/system"
   },
   {
+    "stateName": "components",
+    "urlPrefix": "/components",
+    "type": "load",
+    "src": "packages/core/system"
+  },
+  {
+    "stateName": "admin",
+    "urlPrefix": "/admin",
+    "type": "load",
+    "src": "packages/core/system"
+  },
+  {
+    "stateName": "authentication",
+    "urlPrefix": "/",
+    "type": "load",
+    "src": "packages/core/security"
+  },
+  {
+    "stateName": "user",
+    "urlPrefix": "/users/:userId",
+    "type": "load",
+    "src": "packages/core/security"
+  },
+  {
+    "stateName": "settings",
+    "urlPrefix": "/settings",
+    "type": "load",
+    "src": "packages/core/security"
+  },
+  {
     "stateName": "blog",
     "urlPrefix": "/blog",
     "type": "load",
@@ -30,22 +60,10 @@
     "src": "packages/blog"
   },
   {
-    "stateName": "authentication",
-    "urlPrefix": "/",
+    "stateName": "chat",
+    "urlPrefix": "/chat",
     "type": "load",
-    "src": "packages/core/security"
-  },
-  {
-    "stateName": "user",
-    "urlPrefix": "/users/:userId",
-    "type": "load",
-    "src": "packages/core/security"
-  },
-  {
-    "stateName": "settings",
-    "urlPrefix": "/settings",
-    "type": "load",
-    "src": "packages/core/security"
+    "src": "packages/chat"
   },
   {
     "stateName": "password",

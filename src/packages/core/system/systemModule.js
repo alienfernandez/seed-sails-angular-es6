@@ -1,5 +1,6 @@
 import angular from 'angular';
-import {commonModule} from '../../common/common';
+//import {commonModule} from '../../common/common';
+import {commonModule} from 'commons';
 
 //Import security module
 import security from '../../security';
@@ -40,9 +41,11 @@ systemModule.run(($rootScope, $state, AuthenticationService, $cookies) => {
           return true;
         }
       });
+      //TODO delete this line allowed = true;
+      allowed = true;
       if (!allowed) {
         event.preventDefault();
-        if (AuthenticationService.user && AuthenticationService.user._id) {
+        if (AuthenticationService.user && AuthenticationService.user.id) {
           $state.go('forbidden');
         } else {
           //console.log("$cookies", $cookies);
