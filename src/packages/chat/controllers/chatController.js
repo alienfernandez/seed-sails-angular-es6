@@ -4,6 +4,7 @@ class ChatController {
 
     /*ngInject*/
     constructor($scope, $location, Socket, AuthenticationService, $appConstants, toastr) { //ChatBoxes, ChatXmpp,
+        this.editedTodo = null;
         //ChatBoxes.create('alien');
         this.toastr = toastr;
         //this.ChatBoxes = ChatBoxes;

@@ -27,7 +27,7 @@ module.exports = function (grunt) {
         },
         es6: {
             // Assets to watch:
-            files: ['src/**/*'],
+            files: ['src/**/*', '!**/highlight/*.js', '!**/unit-test/**/*.spec.js'],
 
             // When assets are changed:
             tasks: ['babel', 'copy:assets', 'ng_html2js']

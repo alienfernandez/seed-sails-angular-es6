@@ -34,8 +34,10 @@
     "sails-postgresql": "^0.12.0"
   },
   "scripts": {
+    "postinstall": "jspm install && jspm dl-loader",
     "debug": "node debug app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "grunt && karma start --single-run --browsers Chrome"
   },
   "main": "app.js",
   "repository": {
@@ -56,7 +58,7 @@
       "angular-cookies": "npm:angular-cookies@^1.4.8",
       "angular-local-storage": "github:grevory/angular-local-storage@^0.2.2",
       "angular-material": "github:angular/bower-material@^0.11.0",
-      "angular-mocks": "github:angular/bower-angular-mocks@^1.4.8",
+      "angular-mocks": "github:angular/bower-angular-mocks@^1.5.5",
       "angular-modal-service": "github:dwmkerr/angular-modal-service@^0.6.5",
       "angular-momentjs": "github:gdi2290/angular-momentjs@^0.2.2",
       "angular-resource": "github:angular/bower-angular-resource@^1.4.8",
@@ -103,6 +105,21 @@
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-ng-html2js": "^0.2.1",
-    "jspm": "^0.16.31"
+    "isparta": "^4.0.0",
+    "istanbul": "^0.4.3",
+    "jasmine": "^2.4.1",
+    "jasmine-async-sugar": "^1.4.0",
+    "jasmine-core": "^2.4.1",
+    "jspm": "^0.16.31",
+    "karma": "^0.13.22",
+    "karma-babel-preprocessor": "^6.0.1",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-coverage": "^1.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-jspm": "^2.1.1",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-verbose-reporter": "0.0.3",
+    "phantomjs": "^2.1.7",
+    "phantomjs-prebuilt": "^2.1.7"
   }
 }
