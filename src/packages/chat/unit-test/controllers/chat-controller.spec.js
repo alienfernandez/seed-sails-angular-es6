@@ -1,5 +1,6 @@
 import angular from 'angular';
-import chatModule from 'app/packages/chat/chatModule';
+import bootstrap from 'app/bootstrap';
+//import chatModule from 'app/packages/chat/chatModule';
 import 'angular-mocks';
 
 
@@ -11,45 +12,45 @@ describe('Todo Controller', () => {
 	//	$state.go(url);
 	//	$rootScope.$digest();
 	//}
-  console.log("chatModule", chatModule);
-
-  	it('Null parmas ... ', () => {
-      console.log("testingggggggggg okok");
-  		expect(todoStorage).toBeNull();
-  	});
+  //console.log("chatModule", chatModule);
 
 	// Load the module containing the app, only 'ng' is loaded by default.
-	beforeEach(angular.mock.module(chatModule.name));
+	//beforeEach(angular.mock.module(chatModule.name));
 
-	beforeEach(inject(function (_$rootScope_, _$state_, _$location_, _AuthenticationService_, _$appConstants_, _toastr_) {
-		$rootScope = _$rootScope_;
-    $scope = $rootScope.$new();
-		$location = _$location_;
-    AuthenticationService = _AuthenticationService_;
-    $appConstants = _$appConstants_;
-    toastr = _toastr_;
-    $state = _$state_;
-
-    //todoStorage = _todoStorage_;
-    //todoStorage.reset();
-	}));
+  it('Null parmas ... ', () => {
+    console.log("testingggggggggg okok");
+    expect(todoStorage).toBeNull();
+  });
+    //
+	//beforeEach(inject(function (_$rootScope_, _$state_, _$location_, _AuthenticationService_, _$appConstants_, _toastr_) {
+	//	$rootScope = _$rootScope_;
+    //$scope = $rootScope.$new();
+	//	$location = _$location_;
+    //AuthenticationService = _AuthenticationService_;
+    //$appConstants = _$appConstants_;
+    //toastr = _toastr_;
+    //$state = _$state_;
+    //
+    ////todoStorage = _todoStorage_;
+    ////todoStorage.reset();
+	//}));
 
   //$scope, $location, Socket, AuthenticationService, $appConstants, toastr
 	describe('initial state', function() {
-		beforeEach(inject(function($controller) {
-			chatCtrl = $controller('ChatController', {
-				$scope: $scope,
-        $rootScope: $rootScope,
-        Socket: Socket,
-        AuthenticationService: AuthenticationService,
-        $appConstants: $appConstants,
-        toastr: toastr
-			});
-		}));
-
-		it('should not have an edited Todo on start', function () {
-			expect($scope.editedTodo).toBeNull();
-		});
+		//beforeEach(inject(function($controller) {
+		//	chatCtrl = $controller('ChatController', {
+		//		$scope: $scope,
+        //$rootScope: $rootScope,
+        //Socket: Socket,
+        //AuthenticationService: AuthenticationService,
+        //$appConstants: $appConstants,
+        //toastr: toastr
+		//	});
+		//}));
+        //
+		//it('should not have an edited Todo on start', function () {
+		//	expect($scope.editedTodo).toBeNull();
+		//});
 
 	//	it('should not have any Todos on start', function () {
 	//		expect($scope.todos.length).toBe(0);

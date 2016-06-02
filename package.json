@@ -36,7 +36,8 @@
   "scripts": {
     "postinstall": "jspm install && jspm dl-loader",
     "debug": "node debug app.js",
-    "start": "node app.js",
+    "start": "sails lift",
+    "prod": "node app.js --prod",
     "test": "grunt && karma start --single-run --browsers Chrome"
   },
   "main": "app.js",

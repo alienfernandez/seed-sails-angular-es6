@@ -10,19 +10,19 @@ module.exports = function (config) {
      */
     frameworks: ['jspm', 'jasmine'],
 
-    plugins: ['karma-jspm', 'karma-jasmine',  'karma-babel-preprocessor',  'karma-chrome-launcher',
-      'karma-verbose-reporter', 'karma-phantomjs-launcher'],
+    //plugins: ['karma-jspm', 'karma-jasmine',  'karma-babel-preprocessor',  'karma-chrome-launcher',
+    //  'karma-verbose-reporter', 'karma-phantomjs-launcher'],
 
     /**
      * Start these browsers
      * available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
      */
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],//'Chrome'
 
     // test results reporter to use
     // possible values: 'dots', 'progress', 'coverage'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'verbose'],
+    reporters: ['progress', 'verbose', 'coverage'],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
@@ -32,6 +32,8 @@ module.exports = function (config) {
     colors: true,
 
     files: [
+
+      'jspm_packages/system.js',
       'jspm_packages/github/facebook/react@0.14.7/build/react-with-addons.min.js',
       'jspm_packages/github/JedWatson/classnames@2.2.3/index.js',
       'jspm_packages/github/strophe/strophejs@1.2.5/strophe.js'
@@ -47,7 +49,9 @@ module.exports = function (config) {
       serveFiles: [
         'jspm_packages/github/facebook/react@0.14.7/build/react-with-addons.min.js',
         'jspm_packages/github/JedWatson/classnames@2.2.3/index.js',
-        'app/**/*.+(js|html|css|json)'
+        //'app/bootstrap.js',
+        //'app/**/**',
+        '**/*.+(js|html|css|json)'
       ]
     },
 
@@ -56,13 +60,15 @@ module.exports = function (config) {
       '/jspm_packages': '/base/jspm_packages'
     },
 
+    reporters: ['dots', 'coverage'],
+
     // list of files to exclude
     exclude: [],
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'app/**/unit-test/**/*.js': ['babel'], //'coverage'
+      'app/**/unit-test/**/*.js': ['babel', 'coverage']
     },
 
     babelPreprocessor: {
@@ -71,12 +77,24 @@ module.exports = function (config) {
         sourceMap: 'inline'
       },
     },
+    //babelPreprocessor: {
+    //  options: {
+    //    sourceMap: 'inline',
+    //    modules: 'system'
+    //  }
+    //},
+
+    reporters: ['dots', 'coverage'],
 
     // optionally, configure the reporter
-    //coverageReporter: {
-    //  type: 'html',
-    //  dir: 'coverage/'
-    //}
+    coverageReporter: {
+      instrumenters: { isparta : require('isparta') },
+      instrumenter: { 'app/**/*.js': 'isparta' },
+      dir: '../reports/coverage/',
+      reporters: [
+        {type: 'html'}, {type: 'json'}, {type: 'lcov'}, {type: 'text-summary'}
+      ]
+    },
 
   });
 };

@@ -14,6 +14,7 @@ class DataViewController {
     /*ngInject*/
     constructor(lodash) {
         this._ = lodash;
+        this.test = null;
     }
 }
 
