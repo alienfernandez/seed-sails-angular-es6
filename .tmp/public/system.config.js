@@ -87,6 +87,7 @@ System.config({
     "toastr": "npm:angular-toastr@1.7.0",
     "ui-router-extras": "npm:ui-router-extras@0.0.14",
     "ui-router-stateHelper": "github:marklagendijk/ui-router.stateHelper@1.3.1",
+    "ui-select": "github:angular-ui/ui-select@0.12.1",
     "visionmedia/debug": "github:visionmedia/debug@2.2.0",
     "github:angular-ui/ui-router@0.2.18": {
       "angular": "github:angular/bower-angular@1.5.2"

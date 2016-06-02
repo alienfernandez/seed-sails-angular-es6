@@ -14,7 +14,7 @@ module.exports = function (grunt) {
             sourceMap: true,
             presets: ['es2015', 'react']
         },
-        dist: {
+        dev: {
             files: [{
                 "expand": true,
                 "cwd": "src/",

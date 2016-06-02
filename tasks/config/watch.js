@@ -23,15 +23,15 @@ module.exports = function (grunt) {
             files: ['assets/**/*', 'tasks/pipeline.js', '!**/node_modules/**', 'src/**/*'],
 
             // When assets are changed:
-            tasks: ['syncAssets', 'linkAssets', 'babel', 'copy:assets', 'ng_html2js']
+            tasks: ['syncAssets', 'linkAssets']
         },
-        es6: {
-            // Assets to watch:
-            files: ['src/**/*', '!**/highlight/*.js', '!**/unit-test/**/*.spec.js'],
-
-            // When assets are changed:
-            tasks: ['babel', 'copy:assets', 'ng_html2js']
-        }
+        //es6: {
+        //    // Assets to watch:
+        //    files: ['src/**/*', '!**/highlight/*.js', '!**/unit-test/**/*.spec.js'],
+        //
+        //    // When assets are changed:
+        //    tasks: ['babel:dist', 'copy:assets', 'ng_html2js']
+        //}
     });
 
     grunt.loadNpmTasks('grunt-contrib-watch');

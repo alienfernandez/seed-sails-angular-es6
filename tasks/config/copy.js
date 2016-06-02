@@ -28,6 +28,13 @@ module.exports = function (grunt) {
                 cwd: './assets',
                 src: ['**/*.!(coffee|less)'],
                 dest: '.tmp/public'
+            },{
+              expand: true,
+              cwd: 'src',
+              src: ['**/*.css', '**/*.json', '**/*.svg', '**/*.woff', '**/*.ttf',
+                '**/*.png', '**/*.gif', '**/*.ico', '**/*.jpg', '**/*.eot',
+                '**/unit-test/**/*.spec.js', '**/highlight/*.js', '**/highlight/*.html'],
+              dest: '.tmp/public/app'
             }]
         },
         build: {
@@ -38,16 +45,16 @@ module.exports = function (grunt) {
                 dest: 'www'
             }]
         },
-        assets: {
-            files: [{
-                expand: true,
-                cwd: 'src',
-                src: ['**/*.css', '**/*.json', '**/*.svg', '**/*.woff', '**/*.ttf',
-                    '**/*.png', '**/*.gif', '**/*.ico', '**/*.jpg', '**/*.eot',
-                    '**/unit-test/**/*.spec.js', '**/highlight/*.js', '**/highlight/*.html'],
-                dest: '.tmp/public/app'
-            }]
-        }
+        //assets: {
+        //    files: [{
+        //        expand: true,
+        //        cwd: 'src',
+        //        src: ['**/*.css', '**/*.json', '**/*.svg', '**/*.woff', '**/*.ttf',
+        //            '**/*.png', '**/*.gif', '**/*.ico', '**/*.jpg', '**/*.eot',
+        //            '**/unit-test/**/*.spec.js', '**/highlight/*.js', '**/highlight/*.html'],
+        //        dest: '.tmp/public/app'
+        //    }]
+        //}
     });
 
     grunt.loadNpmTasks('grunt-contrib-copy');

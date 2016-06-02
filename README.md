@@ -47,6 +47,13 @@ $ npm install -g grunt-cli
 $ npm install -g jspm
 ```
 
+* Sails - You're going to use the [Realtime MVC Framework for Node.js (Sails.js)](http://sailsjs.org/). Make sure you've installed Node.js and npm first, then install sails.js globally using npm:
+
+```bash
+$ npm install -g sails
+```
+
+
 ### Cloning The Repository
 The recommended way to get Sails-Angular.ES6 is to use git to directly clone the Sails-Angular.ES6 repository:
 
