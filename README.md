@@ -1,8 +1,8 @@
 
-Sails-Angular.ES6 is a full-stack JavaScript open-source solution based in new version of javascript for the client side, which provides a solid starting point for [Sails.js](http://sailsjs.org/), [Node.js](http://www.nodejs.org/), [React.js](https://facebook.github.io/react/) and [AngularJS](http://angularjs.org/) based applications. The idea is to solve the common issues with connecting those frameworks, build a robust framework to support daily development needs, and help developers use better practices while working with popular JavaScript components.
+Seed-sails-angular-es6 is a full-stack JavaScript open-source solution based in new version of javascript for the client side, which provides a solid starting point for [Sails.js](http://sailsjs.org/), [Node.js](http://www.nodejs.org/), [React.js](https://facebook.github.io/react/) and [AngularJS](http://angularjs.org/) based applications. The idea is to solve the common issues with connecting those frameworks, build a robust framework to support daily development needs, and help developers use better practices while working with popular JavaScript components.
 
 ## Before You Begin
-Before you begin we recommend you read about the basic building blocks that assemble a Sails-Angular.ES6 application:
+Before you begin we recommend you read about the basic building blocks that assemble a Seed-sails-angular-es6 application:
 * Sails.js - The best way to understand sails.js is through its [Official Website](http://sailsjs.org/), Sails is the most popular MVC framework for Node.js. It is designed for building practical, production-ready Node.js apps in a matter of weeks - not months
 * AngularJS - Angular's [Official Website](http://angularjs.org/) is a great starting point. You can also use [Thinkster Popular Guide](http://www.thinkster.io/), and the [Egghead Videos](https://egghead.io/).
 * Node.js - Start by going through [Node.js Official Website](http://nodejs.org/) and this [StackOverflow Thread](http://stackoverflow.com/questions/2353818/how-do-i-get-started-with-node-js), which should get you going with the Node.js platform in no time.
@@ -33,7 +33,7 @@ $ sudo apt-get install nodejs
 
 ## Prerequisite packages
 
-* Sails-Angular.ES6 currently uses Grunt as a build tool and Jspm to manage frontend packages.
+* Seed-sails-angular-es6 currently uses Grunt as a build tool and Jspm to manage frontend packages.
 
 * Gulp - You're going to use the [The JavaScript Task Runner](http://gruntjs.com/) to automate your development process.  Make sure you've installed Node.js and npm first, then install grunt globally using npm:
 
@@ -55,10 +55,10 @@ $ npm install -g sails
 
 
 ### Cloning The Repository
-The recommended way to get Sails-Angular.ES6 is to use git to directly clone the Sails-Angular.ES6 repository:
+The recommended way to get Seed-sails-angular-es6 is to use git to directly clone the Seed-sails-angular-es6 repository:
 
 ```bash
-$ https://alienfernandez@bitbucket.org/alienfernandez/sails-angular.es6.git sails-angular.es6
+$ git clone https://github.com/alienfernandez/seed-sails-angular-es6
 ```
 
 ## Quick Install
