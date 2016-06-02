@@ -41,9 +41,9 @@ class SecurityController {
         //Show loading
         this.loadMask.show('#loadMaskData');
         this.security.signin(this.credentials).then((response) => {
-            this.$rootScope.$emit("message:show", {
-                message: "Mensaje de prueba"
-            });
+            //this.$rootScope.$emit("message:show", {
+            //    message: "Mensaje de prueba"
+            //});
             let defaultRedirect = response.redirect || 'home';
             this.loadMask.hide('#loadMaskData');
             // And redirect to the previous or home page

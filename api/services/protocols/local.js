@@ -154,7 +154,10 @@ exports.login = function (req, identifier, password, next) {
       user: user.id
     }, function (err, passport) {
       if (passport) {
+        console.log("password", password)
         passport.validatePassword(password, function (err, res) {
+          console.log("err", err)
+          console.log("res", res)
           if (err) {
             return next(err);
           }

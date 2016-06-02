@@ -93,6 +93,10 @@ div.navbar-app {
   right: 10px;
   left: auto; }
 
+.navbar a > img {
+  display: inline;
+}
+
 .stylish-input-group .input-group-addon {
   background: white !important; }
 

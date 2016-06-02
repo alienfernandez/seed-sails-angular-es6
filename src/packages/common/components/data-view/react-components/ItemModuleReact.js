@@ -27,6 +27,8 @@ export default class ItemModule extends React.Component {
             'dv-module-view': true
         });
 
+        this.props.icon = "http://placehold.it/100x100";
+        let img = <img src={this.props.icon}/>;
         return (
             <div className={classItemModule} onClick={(function (index, event) {
                     this.props.dataView.setState({selected: index});
@@ -43,7 +45,7 @@ export default class ItemModule extends React.Component {
                 >
                 <div className={classItem}>
                     <dd>
-                        <img src="http://placehold.it/100x100"/>
+                        {img}
 
                         <div>
                             <h4>{this.props.name}</h4>

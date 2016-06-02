@@ -10,6 +10,10 @@ import './services/systemService';
 
 //Controllers
 import './controllers/homeController';
+import './controllers/componentsController';
+import './controllers/controlPanelController';
+import './controllers/systemController';
+import './controllers/adminController';
 
 //Directives
 //import './directives/headerDirective';

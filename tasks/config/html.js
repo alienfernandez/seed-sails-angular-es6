@@ -11,7 +11,7 @@ module.exports = function (grunt) {
             files: [{
                 expand: true,
                 cwd: 'src',
-                src: ['**/*.html'],
+                src: ['**/*.html', '!**/highlight/*.html'],
                 dest: '.tmp/public/app',
                 ext: '.tpl.js'
             }]

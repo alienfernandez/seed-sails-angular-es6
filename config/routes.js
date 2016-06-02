@@ -47,6 +47,10 @@ module.exports.routes = {
    ***************************************************************************/
   //'post /api/auth/signin': 'security/users/AuthenticationController.signin',
   'get /api/users/me': 'security/users/UserController.me',
+  'get /api/users': {model: 'user', blueprint: 'find'},
+  'get /api/users/:id': {model: 'user', blueprint: 'findone'},
+  'post /api/users': {model: 'user', blueprint: 'create'},
+  'put /api/users': {model: 'user', blueprint: 'update'},
 
   'post /register': 'security/users/UserController.create',
   'get /signout': 'security/users/AuthenticationController.logout',

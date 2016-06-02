@@ -999,7 +999,7 @@ a.badge:focus, a.badge:hover {
 
 .form-control {
   display: block;
-  height: 22px;
+  /*height: 22px;*/
   padding: 1px 10px;
   font-size: 11px !important;
   line-height: 20px;

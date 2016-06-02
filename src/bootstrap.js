@@ -8,7 +8,6 @@ import {commonModule} from 'commons';
 import {routing} from 'commons';
 
 import futureRoutes from './routes.json!';
-console.log("futureRoutes",futureRoutes)
 
 //Import system module
 import system from './packages/system';

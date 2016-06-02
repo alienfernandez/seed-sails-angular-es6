@@ -43,7 +43,8 @@ module.exports = function (grunt) {
                 expand: true,
                 cwd: 'src',
                 src: ['**/*.css', '**/*.json', '**/*.svg', '**/*.woff', '**/*.ttf',
-                    '**/*.png', '**/*.gif', '**/*.ico', '**/*.jpg', '**/*.eot', '**/unit-test/**/*.spec.js'],
+                    '**/*.png', '**/*.gif', '**/*.ico', '**/*.jpg', '**/*.eot',
+                    '**/unit-test/**/*.spec.js', '**/highlight/*.js', '**/highlight/*.html'],
                 dest: '.tmp/public/app'
             }]
         }

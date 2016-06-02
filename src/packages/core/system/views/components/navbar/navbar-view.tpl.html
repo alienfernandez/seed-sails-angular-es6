@@ -1,0 +1,31 @@
+<section class="row" style="margin-top: -20px;">
+    <div class="row" style="text-align: justify; margin-top: 30px;">
+        <div class="col-lg-12">
+            <div class="col-lg-12">
+                <div class="tabbable-line">
+                    <ul class="nav nav-tabs" ng-select ng-model="cmpCtrl.currentTabNB"
+                        select-class="{'active': $optSelected}">
+                        <li ng-repeat="tab in cmpCtrl.tabsNavbar" ng-select-option="tab">
+                            <a href=""><i class="{{tab.iconCls}}"></i> {{ tab.name }}</a>
+                        </li>
+                    </ul>
+                    <div class="tab-container">
+                        <div ng-repeat="tab in cmpCtrl.tabsNavbar">
+                            <div ng-if="tab == cmpCtrl.currentTabNB">
+                                <div class="row" style="margin-top: 10px;">
+                                    <div class="col-lg-12" ng-if="tab.highlight" hljs
+                                         hljs-include="cmpCtrl.currentTabNB.uri"></div>
+                                    <div ng-if="!tab.highlight">
+                                        <div class="col-lg-12">
+                                            <navbar user="cmpCtrl.user"></navbar>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

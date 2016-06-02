@@ -12,7 +12,9 @@ System.config({
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*",
     "commons": "app/packages/common/common.js",
-    "packages/*": "app/packages/*.js"
+    "core": "app/packages/core/index.js",
+    "packages/*": "app/packages/*.js",
+    "highlight-js": "js/define/highlight-js.js"
   },
 
   meta: {
@@ -26,14 +28,27 @@ System.config({
         "npm:angular-toastr@1.7.0/dist/angular-toastr.css!",
         "npm:angular-toastr@1.7.0/dist/angular-toastr.tpls"
       ]
+    },
+    "highlight-js": {
+      "deps": [
+        "github:isagalaev/highlight.js@9.4.0/src/styles/darkula.css!"
+      ]
+    },
+    "github:ceolter/ag-grid@4.2.5": {
+      "deps": [
+        "github:ceolter/ag-grid@4.2.5/dist/styles/ag-grid.css!",
+        "github:ceolter/ag-grid@4.2.5/dist/styles/theme-blue.css!",
+        "github:ceolter/ag-grid@4.2.5/dist/styles/theme-fresh.css!"
+      ]
     }
   },
 
   map: {
-    "ag-grid": "github:ceolter/ag-grid@2.3.7",
+    "ag-grid": "github:ceolter/ag-grid@4.2.5",
     "angular": "github:angular/bower-angular@1.5.2",
     "angular-animate": "npm:angular-animate@1.5.2",
     "angular-cookies": "npm:angular-cookies@1.5.2",
+    "angular-highlightjs": "github:pc035860/angular-highlightjs@0.6.1",
     "angular-local-storage": "github:grevory/angular-local-storage@0.2.7",
     "angular-material": "github:angular/bower-material@0.11.4",
     "angular-mocks": "github:angular/bower-angular-mocks@1.5.2",
@@ -49,9 +64,10 @@ System.config({
     "bootstrap": "github:twbs/bootstrap@3.3.6",
     "classNames": "github:JedWatson/classnames@2.2.3",
     "core-js": "npm:core-js@1.2.6",
-    "css": "github:systemjs/plugin-css@0.1.20",
+    "css": "github:systemjs/plugin-css@0.1.22",
     "fancybox-plus": "github:igorlino/fancybox-plus@1.3.7",
     "font-awesome": "npm:font-awesome@4.5.0",
+    "highlight": "github:isagalaev/highlight.js@9.4.0",
     "image": "github:systemjs/plugin-image@0.1.0",
     "jquery": "github:components/jquery@2.2.1",
     "jquery-ui": "npm:jquery-ui@1.10.5",
@@ -62,7 +78,7 @@ System.config({
     "ng-lodash": "npm:ng-lodash@0.2.3",
     "ng-select": "github:pc035860/ngSelect@1.0.0",
     "ocLazyLoad": "github:ocombe/ocLazyLoad@1.0.9",
-    "plugin-css": "github:systemjs/plugin-css@0.1.20",
+    "plugin-css": "github:systemjs/plugin-css@0.1.22",
     "plugin-image": "github:systemjs/plugin-image@0.1.0",
     "plugin-json": "github:systemjs/plugin-json@0.1.0",
     "react": "github:facebook/react@0.14.7",
@@ -91,7 +107,10 @@ System.config({
       "angular": "github:angular/bower-angular@1.5.2",
       "angular-animate": "github:angular/bower-angular-animate@1.5.2",
       "angular-aria": "github:angular/bower-angular-aria@1.5.2",
-      "css": "github:systemjs/plugin-css@0.1.20"
+      "css": "github:systemjs/plugin-css@0.1.22"
+    },
+    "github:ceolter/ag-grid@4.2.5": {
+      "css": "github:systemjs/plugin-css@0.1.22"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
@@ -165,7 +184,7 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:font-awesome@4.5.0": {
-      "css": "github:systemjs/plugin-css@0.1.20"
+      "css": "github:systemjs/plugin-css@0.1.22"
     },
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"

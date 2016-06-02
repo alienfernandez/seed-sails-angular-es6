@@ -1,0 +1,52 @@
+<section class="row" style="margin-top: -20px;">
+    <div class="row" style="text-align: justify; margin-top: 30px;">
+        <div class="col-lg-12">
+            <div class="col-lg-12">
+                <div class="tabbable-line">
+                    <ul class="nav nav-tabs" ng-select ng-model="cmpCtrl.currentTabMR"
+                        select-class="{'active': $optSelected}">
+                        <li ng-repeat="tab in cmpCtrl.tabsMaskRe" ng-select-option="tab">
+                            <a href=""><i class="{{tab.iconCls}}"></i> {{ tab.name }}</a>
+                        </li>
+                    </ul>
+                    <div class="tab-container">
+                        <div ng-repeat="tab in cmpCtrl.tabsMaskRe">
+                            <div ng-if="tab == cmpCtrl.currentTabMR">
+                                <div class="row" style="margin-top: 10px;">
+                                    <div class="col-lg-12" ng-if="tab.highlight" hljs
+                                         hljs-include="cmpCtrl.currentTabMR.uri"></div>
+                                    <div ng-if="!tab.highlight">
+                                        <div class="col-lg-12" style="margin-top: 10px;">
+                                            <div class="col-lg-12">
+                                                <p>Only allows you to write text characters. </p>
+
+                                                <div class="col-lg-12">
+                                                    <p>Regular Expression: [a-zA-Z]</p>
+
+                                                    <p>Number of Characters: 50</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div style="margin-top: 15px" class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="glyphicon glyphicon-user"></i>
+                                                    </span>
+                                                    <input id="login-username" type="text" class="form-control"
+                                                           name="username"
+                                                           value="" ng-model="secCtrl.credentials.username"
+                                                           maskre="[a-zA-Z]" ng-maxlength="50"
+                                                           placeholder="Username or email"
+                                                           required/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

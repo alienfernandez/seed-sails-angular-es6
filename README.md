@@ -51,7 +51,7 @@ $ npm install -g jspm
 The recommended way to get Sails-Angular.ES6 is to use git to directly clone the Sails-Angular.ES6 repository:
 
 ```bash
-$ https://alienfernandez@bitbucket.org/alienfernandez/seed-mean-es6.git meanes6
+$ https://alienfernandez@bitbucket.org/alienfernandez/sails-angular.es6.git sails-angular.es6
 ```
 
 ## Quick Install

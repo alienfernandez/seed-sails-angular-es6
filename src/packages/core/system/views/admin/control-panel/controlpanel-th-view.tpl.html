@@ -1,0 +1,24 @@
+<section class="row" style="margin-top: -20px;">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="col-lg-12 block-mb15">
+                <div class="pull-right">
+                    <form class="form-inline" role="form">
+                        <div class="form-group block-ml5">
+                            <label class="sr-only" for="view_by">View by: </label>
+                            <select class="form-control" name="view_by" id="view_by">
+                                <option value="1" selected="selected">Category view</option>
+                                <option value="2">List view</option>
+                            </select>
+                        </div>
+                        <div class="form-group block-ml5">
+                            <input type="text" class="form-control" ng-model="controlCtrl.search_control"
+                                   placeholder="Search in control panel"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <dataview options="controlCtrl.optControlPanel"></dataview>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,20 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+/* TEAM */
+	Full Stack Developer: Alien Fernandez Fuentes
+	Site: alienfernandez85@gmail.com
+	Twitter: @AlienFdez
+	From: Grand Island, Nebraska, United States
+
+/* THANKS */
+
+    <name>
+
+
+/* SITE */
+    Site name: Sails-Angular.ES6
+    Last update: YYYY/MM/DD
+    Standards: HTML5, CSS3, AngularJs, Node.js, Sails.js, Express, React.js
+    Built with: AngularJs, Node.js, Sails.js, Express, React.js, HTML5, CSS3, jQuery
+    Software: Software used for the development

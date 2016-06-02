@@ -5,7 +5,6 @@ import Common from './lagoProvider';
 function routing(module, futureRoutes) {
     module.requires.push('ct.ui.router.extras.future');
     module.requires.push(Common.name);
-  console.log("Common.name", Common.name)
 
     let RouterConfig = ["$stateProvider", "$futureStateProvider", "lagoProvider", ($stateProvider, $futureStateProvider, lagoProvider) => {
         $futureStateProvider.stateFactory('load', ['$q', '$ocLazyLoad', 'futureState', ($q, $ocLazyLoad, futureState) => {

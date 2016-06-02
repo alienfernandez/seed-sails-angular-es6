@@ -29,16 +29,30 @@ class ProfileController {
      * Update a user profile
      */
     updateUserProfile() {
-        console.log("this.user1", this._.clone(this.user));
-        this.user.$update((response) => {
-            console.log("response", response);
+      this.UserService.update({ userId:this.user.id }, this.user)
+        .$promise
+        .then((response) => {
+          console.log("response", response);
+          if (response.$resolved){
             this.authentication.user = response;
             this.toastr.success('Profile updated correctly.');
             this.$state.reload();
-        }, (response) => {
-            this.error = response.data.message;
-            this.toastr.error('Error: ' + this.error, 'Error');
+          }else {
+            this.toastr.error("Failed to update profile.");
+          }
+        }).catch((error) => {
+          console.log("error", error)
         });
+
+        //this.user.$update((response) => {
+        //    console.log("response", response);
+        //    this.authentication.user = response;
+        //    this.toastr.success('Profile updated correctly.');
+        //    this.$state.reload();
+        //}, (response) => {
+        //    this.error = response.data.message;
+        //    this.toastr.error('Error: ' + this.error, 'Error');
+        //});
     }
 
     /**

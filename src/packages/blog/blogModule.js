@@ -1,6 +1,5 @@
 import angular from 'angular';
 import agGrid from 'ag-grid';
-//console.log("agGrid", agGrid);
 
 //Import all module templates
 import * as Templates from './templates';
@@ -8,10 +7,9 @@ import * as Templates from './templates';
 //Import config module class
 import BlogConfig from './config/blog-config';
 
-//import {commonModule} from 'commons';
-//agGrid.initialiseAgGridWithAngular1(angular);
-//import {commonModule} from '../../packages/common/common';
 import {commonModule} from 'commons';
+// get ag-Grid to create an Angular module and register the ag-Grid directive
+agGrid.initialiseAgGridWithAngular1(angular);
 
 let blogModule = angular.module('app.blog', [
     'agGrid', 'common',

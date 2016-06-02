@@ -1,0 +1,44 @@
+<section class="row" style="margin-top: -20px;">
+    <div class="row" style="text-align: justify; margin-top: 30px;">
+        <div class="col-lg-12">
+            <div class="col-lg-12">
+                <div class="tabbable-line">
+                    <ul class="nav nav-tabs" ng-select ng-model="cmpCtrl.currentTabLM"
+                        select-class="{'active': $optSelected}">
+                        <li ng-repeat="tab in cmpCtrl.tabsLoadMask" ng-select-option="tab">
+                            <a href=""><i class="{{tab.iconCls}}"></i> {{ tab.name }}</a>
+                        </li>
+                    </ul>
+                    <div class="tab-container">
+                        <div ng-repeat="tab in cmpCtrl.tabsLoadMask">
+                            <div ng-if="tab == cmpCtrl.currentTabLM">
+                                <div class="row" style="margin-top: 10px;">
+                                    <div class="col-lg-12" ng-if="tab.highlight" hljs
+                                         hljs-include="cmpCtrl.currentTabLM.uri"></div>
+                                    <div ng-if="!tab.highlight">
+                                        <div class="col-lg-12" style="height: 200px;">
+                                            <div data-role="loadMask" class="load-mask ng-scope" id="exampleLoadMask"
+                                                 el="body" message="Espere por favor, autenticando ..."
+                                                 style="display: block">
+                                                <div class="load-mask-panel">
+                                                    <div class="loading-wrapper">
+                                                    <span class="loading-center">
+                                                        <i class="fa fa-spinner fa-pulse"></i>
+                                                        <span data-role="message"><span> </span>
+                                                            <span>Espere por favor, autenticando ...</span>
+                                                        </span>
+                                                    </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

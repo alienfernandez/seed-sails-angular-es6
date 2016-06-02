@@ -28,12 +28,14 @@ class AppPanelController {
             iconCls: 'fa fa-home',
             description: "Home",
             state: "home"
-          }, {
-            name: "Chat",
-            iconCls: 'fa fa-comment',
-            description: "Chat",
-            state: "chat"
-          }, {
+          },
+          //{
+          //  name: "Chat",
+          //  iconCls: 'fa fa-comment',
+          //  description: "Chat",
+          //  state: "chat"
+          //},
+          {
             name: "Panel",
             iconCls: 'fa fa-th',
             description: "Control Panel",
@@ -50,10 +52,7 @@ class AppPanelController {
           component: DataItemAppPanel,
           listeners: {
             onClick: (item, dataView, index, event) => {
-              //console.log("item", item);
-              //console.log("dataView", dataView);
-              //console.log("index", index);
-              //console.log("event", event);
+
             }
           }
         }

@@ -273,7 +273,9 @@ passport.loadStrategies = function () {
       // Only load the local strategy if it's enabled in the config
       if (strategies.local) {
         Strategy = strategies[key].strategy;
-        passport.use(new Strategy(options, this.protocols.local.login));
+        //console.log("this.protocols", this)
+        //passport.use(new Strategy(options, this.protocols.local.login));
+        passport.use(new Strategy(options, passport.protocols.local.login));
       }
     }
     else {
@@ -306,7 +308,7 @@ passport.loadStrategies = function () {
       // do that.
       _.extend(options, strategies[key].options);
 
-      passport.use(new Strategy(options, this.protocols[protocol]));
+      passport.use(new Strategy(options, passport.protocols[protocol]));
     }
   }, this);
 };

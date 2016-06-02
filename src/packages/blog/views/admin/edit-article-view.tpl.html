@@ -1,7 +1,8 @@
 <section ng-init="articleCtrl.findOne()">
+  <navbar user="articleCtrl.user"></navbar>
     <div class="col-lg-12">
         <div class="page-header">
-            <h2>Edit Article <span ng-bind="articleCtrl.article.title"></span></h2>
+            <h2>Edit Article </h2>
         </div>
         <div class="col-md-12">
             <form name="articleForm" novalidate>
@@ -23,11 +24,14 @@
                         </div>
                     </div>
 
+                  <div class="col-lg-12">
                     <div class="form-group">
                         <input type="submit" value="Update" class="btn btn-default" ng-click="articleCtrl.update()"
                                validation-submit="articleForm">
                     </div>
-                    <div ng-show="error" class="text-danger">
+                  </div>
+
+                  <div ng-show="error" class="text-danger">
                         <strong ng-bind="error"></strong>
                     </div>
                 </fieldset>

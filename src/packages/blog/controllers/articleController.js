@@ -49,7 +49,7 @@ class ArticleController {
                 minWidth: 120,
                 maxWidth: 120,
                 template: '<div class="text-center">' +
-                '<span class="block-mr5"><button class="btn btn-xs btn-info" ng-click="articleCtrl.edit({articleId: data._id})"><i class="fa fa-pencil"></i></button></span>' +
+                '<span class="block-mr5"><button class="btn btn-xs btn-info" ng-click="articleCtrl.edit({articleId: data.id})"><i class="fa fa-pencil"></i></button></span>' +
                 '<span class="block-mr5"><button class="btn btn-xs btn-danger" ng-click="articleCtrl.remove(data)"><i class="fa fa-trash-o"></i></button></span>' +
                 '</div>'
             }, {
@@ -102,14 +102,14 @@ class ArticleController {
             enableSorting: true,
             enableFilter: true,
             onCellDoubleClicked: (row) => {
-                this.edit({articleId: row.data._id})
+                this.edit({articleId: row.data.id})
             },
             //onSelectionChanged: this.selectionChangeCallback,
             rowHeight: 25,
             onModelUpdated: () => {
                 var model = this.gridOptions.api.getModel();
                 var totalRows = this.gridOptions.rowData.length;
-                var processedRows = model.getVirtualRowCount();
+                var processedRows = model.getRowCount();
                 if (totalRows && processedRows) {
                     this.rowFiltered = processedRows.toLocaleString();
                 } else {
@@ -143,9 +143,14 @@ class ArticleController {
 
     // Find existing Article
     findOne() {
+      if (this.$stateParams.articleId){
         this.article = this.articleResource.get({
-            articleId: this.$stateParams.articleId
+          articleId: this.$stateParams.articleId
         });
+      }else {
+        this.toastr.success("Article id is missing.");
+      }
+
     }
 
     edit(article) {
@@ -153,25 +158,44 @@ class ArticleController {
     }
 
     update() {
-        this.article.$update(() => {
-            this.$state.transitionTo('article-list');
-            this.toastr.success("Article saved.");
-        }, (errorResponse) => {
-            console.log("errorResponse", errorResponse);
-            this.toastr.error(errorResponse.message.message);
+        //this.article.$update({ articleId:this.article.id }, () => {
+        //    this.$state.transitionTo('article-list');
+        //    this.toastr.success("Article saved.");
+        //}, (errorResponse) => {
+        //    console.log("errorResponse", errorResponse);
+        //    this.toastr.error(errorResponse.message.message);
+        //});
+
+      this.articleResource.update({ articleId:this.article.id }, this.article)
+        .$promise.then((response) => {
+          if (response.$resolved){
+                this.$state.transitionTo('article-list');
+                this.toastr.success("Article saved.");
+          }else {
+              console.log("response", response);
+              this.toastr.error("Failed to update the resource.");
+            }
         });
     }
 
     remove(article) {
         if (confirm('Are you sure you want to delete this article?')) {
-            if (article) {
-                article.$remove();
-                this.articles.splice(this.articles.indexOf(article), 1);
-                this.gridOptions.api.setRowData(this.articles);
+            let articleDel = (article) ? article : this.article;
+            if (articleDel) {
+              console.log("this.articleResource", this.articleResource)
+                //article.$remove();
+                this.articleResource.remove({ articleId:articleDel.id }, articleDel)
+                  .$promise.then((response) => {
+                    if (response.$resolved){
+                      this.articles.splice(this.articles.indexOf(article), 1);
+                      this.gridOptions.api.setRowData(this.articles);
+                    }else {
+                      console.log("response", response);
+                      this.toastr.error("Failed to delete the resource.");
+                    }
+                  });
             } else {
-                this.article.$remove(() => {
-                    this.$state.transitionTo('article-list');
-                });
+              this.toastr.error("The resource doesnt exist.");
             }
         }
     }

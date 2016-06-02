@@ -1,0 +1,34 @@
+<section class="row" style="margin-top: -20px;">
+    <div class="row" style="text-align: justify; margin-top: 30px;">
+        <div class="col-lg-12">
+            <div class="col-lg-12">
+                <div class="tabbable-line">
+                    <ul class="nav nav-tabs" ng-select ng-model="cmpCtrl.currentTabDV"
+                        select-class="{'active': $optSelected}">
+                        <li ng-repeat="tab in cmpCtrl.tabsDataView" ng-select-option="tab">
+                            <a href=""><i class="{{tab.iconCls}}"></i> {{ tab.name }}</a>
+                        </li>
+                    </ul>
+                    <div class="tab-container">
+                        <div ng-repeat="tab in cmpCtrl.tabsDataView">
+                            <div ng-if="tab == cmpCtrl.currentTabDV">
+                                <div class="row" style="margin-top: 10px;">
+                                    <div class="col-lg-12" ng-if="tab.highlight" hljs
+                                         hljs-include="cmpCtrl.currentTabDV.uri"
+                                         style="overflow: auto; height: 500px;">
+                                    </div>
+                                    <div ng-if="!tab.highlight">
+                                        <div class="col-lg-12">
+                                            <dataview options="cmpCtrl.options"></dataview>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
