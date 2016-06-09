@@ -41,7 +41,7 @@ class SecurityController {
         //Show loading
         this.loadMask.show('#loadMaskData');
         this.security.signin(this.credentials).then((response) => {
-            //this.$rootScope.$emit("message:show", {
+            console.log("response", response)
             //    message: "Mensaje de prueba"
             //});
             let defaultRedirect = response.redirect || 'home';
@@ -49,8 +49,8 @@ class SecurityController {
             // And redirect to the previous or home page
             this.$state.transitionTo(this.$state.previous.state.name || defaultRedirect, this.$state.previous.params);
         }).catch((error) => {
-          console.log("error", error);
-            this.toastr.error(error.message.message, 'Error');
+            console.log("error", error);
+            //this.toastr.error(error.message.message, 'Error');
             this.loadMask.hide('#loadMaskData');
         });
     }

@@ -1,5 +1,5 @@
 var SAError = require('../../../lib/error/SAError.js');
-var  generatePassword = require('password-generator');
+var generatePassword = require('password-generator');
 
 /**
  * Local Authentication Protocol
@@ -19,7 +19,7 @@ var  generatePassword = require('password-generator');
  * @param {Function} next
  */
 exports.register = function (user, next) {
-  exports.createUser(user, next);
+    exports.createUser(user, next);
 };
 
 /**
@@ -34,42 +34,42 @@ exports.register = function (user, next) {
  * @param {Function} next
  */
 exports.createUser = function (_user, next) {
-  var password = _user.password;
-  delete _user.password;
-  var jidPassword = generatePassword(12, false);
-  _user.displayName = _user.firstName + ' ' + _user.lastName;
-  _user.jid = _user.username + '@localhost';
-  _user.jidPassword = jidPassword;
+    var password = _user.password;
+    delete _user.password;
+    var jidPassword = generatePassword(12, false);
+    _user.displayName = _user.firstName + ' ' + _user.lastName;
+    _user.jid = _user.username + '@localhost';
+    _user.jidPassword = jidPassword;
 
-  return sails.models.user.create(_user, function (err, user) {
-    if (err) {
-      sails.log(err);
+    return sails.models.user.create(_user, function (err, user) {
+        if (err) {
+            sails.log(err);
 
-      if (err.code === 'E_VALIDATION') {
-        return next(new SAError({originalError: err}));
-      }
+            if (err.code === 'E_VALIDATION') {
+                return next(new SAError({originalError: err}));
+            }
 
-      return next(err);
-    }
-
-    sails.models.passport.create({
-      protocol: 'local'
-      , password: password
-      , user: user.id
-    }, function (err, passport) {
-      if (err) {
-        if (err.code === 'E_VALIDATION') {
-          err = new SAError({originalError: err});
+            return next(err);
         }
 
-        return user.destroy(function (destroyErr) {
-          next(destroyErr || err);
-        });
-      }
+        sails.models.passport.create({
+            protocol: 'local'
+            , password: password
+            , user: user.id
+        }, function (err, passport) {
+            if (err) {
+                if (err.code === 'E_VALIDATION') {
+                    err = new SAError({originalError: err});
+                }
 
-      next(null, user);
+                return user.destroy(function (destroyErr) {
+                    next(destroyErr || err);
+                });
+            }
+
+            next(null, user);
+        });
     });
-  });
 };
 
 /**
@@ -84,31 +84,31 @@ exports.createUser = function (_user, next) {
  * @param {Function} next
  */
 exports.connect = function (req, res, next) {
-  var user = req.user
-    , password = req.param('password')
-    , Passport = sails.models.passport;
+    var user = req.user
+        , password = req.param('password')
+        , Passport = sails.models.passport;
 
-  Passport.findOne({
-    protocol: 'local'
-    , user: user.id
-  }, function (err, passport) {
-    if (err) {
-      return next(err);
-    }
-
-    if (!passport) {
-      Passport.create({
+    Passport.findOne({
         protocol: 'local'
-        , password: password
         , user: user.id
-      }, function (err, passport) {
-        next(err, user);
-      });
-    }
-    else {
-      next(null, user);
-    }
-  });
+    }, function (err, passport) {
+        if (err) {
+            return next(err);
+        }
+
+        if (!passport) {
+            Passport.create({
+                protocol: 'local'
+                , password: password
+                , user: user.id
+            }, function (err, passport) {
+                next(err, user);
+            });
+        }
+        else {
+            next(null, user);
+        }
+    });
 };
 
 /**
@@ -124,58 +124,74 @@ exports.connect = function (req, res, next) {
  * @param {Function} next
  */
 exports.login = function (req, identifier, password, next) {
-  var isEmail = validateEmail(identifier)
-    , query = {};
+    var isEmail = validateEmail(identifier)
+        , query = {};
 
-  if (isEmail) {
-    query.email = identifier;
-  }
-  else {
-    query.username = identifier;
-  }
-
-  sails.models.user.findOne(query, function (err, user) {
-    if (err) {
-      return next(err);
+    if (isEmail) {
+        query.email = identifier;
+    }
+    else {
+        query.username = identifier;
     }
 
-    if (!user) {
-      if (isEmail) {
-        req.flash('error', 'Error.Passport.Email.NotFound');
-      } else {
-        req.flash('error', 'Error.Passport.Username.NotFound');
-      }
-
-      return next(null, false);
-    }
-
-    sails.models.passport.findOne({
-      protocol: 'local',
-      user: user.id
-    }, function (err, passport) {
-      if (passport) {
-        console.log("password", password)
-        passport.validatePassword(password, function (err, res) {
-          console.log("err", err)
-          console.log("res", res)
-          if (err) {
+    //Find user
+    sails.models.user.findOne(query, function (err, user) {
+        if (err) {
             return next(err);
-          }
+        }
 
-          if (!res) {
-            req.flash('error', 'Error.Passport.Password.Wrong');
-            return next(null, false);
-          } else {
-            return next(null, user, passport);
-          }
+        if (!user) {
+            var noUserError = '';
+            if (isEmail) {
+                //req.flash('error', 'Error.Passport.Email.NotFound');
+                noUserError = {
+                    code: 'Error.Passport.Password.Wrong',
+                    message: 'Email not founnd'
+                };
+            } else {
+                //req.flash('error', 'Error.Passport.Username.NotFound');
+                noUserError = {
+                    code: 'Error.Passport.Username.NotFound',
+                    message: 'Username not found'
+                };
+            }
+
+            return next(null, false, noUserError);
+        }
+
+        sails.models.passport.findOne({
+            protocol: 'local',
+            user: user.id
+        }, function (err, passport) {
+            console.log("passport", passport)
+            if (passport) {
+                passport.validatePassword(password, function (err, res) {
+                    console.log("res", res)
+                    //console.log("req", req)
+                    if (err) {
+                        return next(err);
+                    }
+
+                    if (!res) {
+                        //req.flash('error', 'Error.Passport.Password.Wrong');
+                        return next(null, false, {
+                            code: 'Error.Passport.Password.Wrong',
+                            message: 'Invalid username or password'
+                        });
+                    } else {
+                        return next(null, user, passport);
+                    }
+                });
+            }
+            else {
+                //req.flash('error', 'Error.Passport.Password.NotSet');
+                return next(null, false, {
+                    code: 'Error.Passport.Password.NotSet',
+                    message: 'The password is not set'
+                });
+            }
         });
-      }
-      else {
-        req.flash('error', 'Error.Passport.Password.NotSet');
-        return next(null, false);
-      }
     });
-  });
 };
 
 var EMAIL_REGEX = /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))$/i;
@@ -187,5 +203,5 @@ var EMAIL_REGEX = /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF9
  * @see <https://github.com/chriso/validator.js/blob/3.18.0/validator.js#L141-L143>
  */
 function validateEmail(str) {
-  return EMAIL_REGEX.test(str);
+    return EMAIL_REGEX.test(str);
 }
